@@ -1,0 +1,3 @@
+planning_plugin: lerp_interface/LERPPlanner
+request_adapters: ""
+num_steps: 10

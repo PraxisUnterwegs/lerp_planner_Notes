@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>moveit_planners_lerp</name>
+  <version>0.1.0</version>
+  <description>MoveIt interface to lerp</description>
+  
+  <maintainer email="author@xx.com">Author's Name</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>moveit_common</depend>
+  <depend>moveit_core</depend>
+  <depend>moveit_msgs</depend>
+  <depend>pluginlib</depend>
+  <depend>trajectory_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  
+  <export>
+	<build_type>ament_cmake</build_type>
+	<moveit_core plugin="${prefix}/lerp_interface_plugin_description.xml"/>
+  </export>
+</package>
