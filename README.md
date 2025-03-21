@@ -1,4 +1,12 @@
-# 将自定义规划器插件集成到 MoveIt 2 的指南 - Cairui Gao
+# 将自定义规划器插件集成到 MoveIt 2 的指南
+
+## 仓库说明
+
+这个仓库用于修复moveit2、moveit-humble官方教程里版本滞后的问题（即create planner plugin部分的教程使用的代码案例仍然是moveit1-noetic版本的api，导致无法编译成功。这部分代码你可以在moveit_tutorials的官方仓库中查看）
+
+现已完成了api的改进，使得这个仓库得以适应ros2，moveit2的api，这对新手的学习无疑是十分有利的，可以提供一个完整的，可成功编译的案例以供学习参考。
+
+---
 
 ## 1. 添加新规划器
 
