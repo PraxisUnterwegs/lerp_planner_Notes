@@ -24,3 +24,19 @@
 ## 2.在 MoveIt 2 中配置新规划器
 
 在目录 `~/ws_moveit2/src/moveit2/moveit_configs_utils/default_configs` 中添加文件 `newplanner_planning.yaml`。
+
+---
+
+## 3.在Rviz里面让demo跑起来，生成轨迹路线（让机械臂动起来）
+
+利用moveit assistant setup工具自己构建一个`newplanner_moveit_config`功能包，然后输入`ros2 launch newplanner_moveit_config demo.launch.py`，就能打开 `Rviz`界面，然后在motion planning bar里的`contex`
+
+选项卡里选择自定义的插件就行了。不出意外的话，应该有`ompl`、`chomp`、`lerp`这些选项了，然后就你切换为自定义的规划器，就可以跑demo了。
+
+<span style="color:orange">简而言之，你其实无需自行撰写一个`newplanner_example.cpp`来作为`demo`执行的源文件。请直接依赖自动配置工具moveit assistant setup生成的功能包就行了，这个功能包里一定会有`demo.launch.py`文件。你启动这个启动文件，然后在`Rviz`可视化界面里面更换规划器插件，然后自己进行轨迹demo就行了。</span> 
+
+***什么 motion planning / motion planning pipeline 的 api flow 你其实完全不用去管，除非你要手动设置精确的约束，比如说目标约束、轨迹约束、公差等等信息**。* 
+
+至于添加物体障碍物等到场景中去，你可以通过`Rviz`，也可以通过写源代码的方式。而且，源代码和moveit config功能包也不是完全独立的（即各自独立工作，只需要一者）。实际上，两者是可以协同工作的。自己写的源代码可以放在自定义功能包里并撰写新的启动文件，然后再 include  `moveit config` 功能包里的 `demo.launch.py`，这样可以大大简化自己的启动文件梳理编写工作。
+
+只不过，如果只需要使用 demo 来测试自定义规划器插件的成功工作与否，只需要借用 moveit assistant setup 配置 moveit config功能包就可以了，省的麻烦。
