@@ -25,6 +25,8 @@
 
 在目录 `~/ws_moveit2/src/moveit2/moveit_configs_utils/default_configs` 中添加文件 `newplanner_planning.yaml`。
 
+这一步是**必要的**，因为当你使用 MoveIt Assistant setup 工具创建功能包时，它默认会加载 `moveit_configs_utils/default_configs/` 目录中的 YAML 配置文件，其中包含 MoveIt 的默认规划参数（例如 `ompl_planning.yaml` 等）。这些参数会被自动应用到 MoveIt 运行时的配置中，除非你在启动文件（launch 文件）中明确指定了其他 YAML 文件来覆盖默认配置。
+
 ---
 
 ## 3.在Rviz里面让demo跑起来，生成轨迹路线（让机械臂动起来）
